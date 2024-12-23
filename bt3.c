@@ -1,24 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int n, arr[n][n];
-    printf("nhap 1 so nguyen: ");
-    scanf("%d", &n);
+	int arr[] = {10, 55, 5, 20, 15, 30, 0};
+	int size = sizeof(arr) / sizeof(arr[0]);
+	 for (int i = 1; i < size; i++) {
+		int key = arr[i];
+		 int j = i - 1;
+		  while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j=j-1;// or j--
+	}
+	  arr[j + 1] = key;
+}
 
-    printf("nhap phan tu cho ma tran %d x %d:\n", n, n);
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("arr[%d][%d]: ", i, j);
-            scanf("%d", &arr[i][j]);
-        }
-    }
-    printf("\nma tran vua nhap la:\n");
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%d ", arr[i][j]);
-        }
-        printf("\n");
-    }
-
-    return 0;
+	printf("mang da sap xeo theo thu tu tang dan: ");
+	for (int i = 0; i < size; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+	return 0;
 }

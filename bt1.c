@@ -1,27 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int a, b;
-    printf("Nhap so dong: ");
-    scanf("%d",&a);
-    printf("Nhap so cot: ");
-    scanf("%d",&b);
+	int arr[] = {5, 10, 15, 20, 15, 30, 15};
+	int size = sizeof(arr) / sizeof(arr[0]);
+	int a, b = 0;
 
-    int arr[a][b]; 
-    printf("Nhap cac phan tu mang 2 chieu:\n");
-    for(int n = 0; n<a; n++){
-        for(int h = 0; h<b; h++) {
-            printf("Phan tu arr[%d][%d]: ", n, h);
-            scanf("%d", &arr[n][h]);
-        }
-    }
-    printf("Cac phan tu trong mang tu cuoi ve dau :\n");
-    for (int n = a - 1; n >= 0; n--) {
-        for (int h = b - 1; h >= 0; h--) {
-            printf("%d ", arr[n][h]);
-        }
-    }
-    printf("\n");
+	printf("nhap phan tu kiem tra: ");
+	scanf("%d",&a);
 
-    return 0;
+	printf("phan tu %d co trong mang: ",a);
+	for (int i = 0; i < size; i++) {
+		if (arr[i] == b) {
+			printf("%d ", a);
+			b = 1;
+			if (!b) {
+				printf("khong ton tai trong mang");
+			}
+		}
+	}
+	return 0;
 }

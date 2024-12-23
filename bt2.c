@@ -1,33 +1,22 @@
 #include <stdio.h>
 
 int main() {
-	int a, b, c, d=0, arr[a][b];
-	printf("Nhap so dong: ");
-	scanf("%d",&a);
-
-	printf("Nhap so cot: ");
-	scanf("%d",&b);
-
-	printf("Nhap cac phan tu mang 2 chieu:\n");
-	for(int n = 0; n<a; n++) {
-		for(int h = 0; h<b; h++) {
-			printf("Phan tu arr[%d][%d]: ", n, h);
-			scanf("%d", &arr[n][h]);
-		}
-	}
-	printf("Nhap phan tu can kiem tra: ");
-	scanf("%d", &c);
-	for (int n = 0; n<a; n++) {
-		for (int h = 0; h<b; h++) {
-			if (arr[n][h]==c) {
-				printf("Phan tu co tai vi tri:dong %d, cot %d\n", n, h);
-				d=1;
+	int arr[] = {10, 55, 5, 20, 15, 30, 0};
+	int size = sizeof(arr) / sizeof(arr[0]);
+	int a, b = 0;
+	for (int i = 0; i < size - 1; i++) {
+		for (int j = 0; j < size - i - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
 			}
-
 		}
 	}
-	if (!d) {
-		printf("Phan tu khong ton tai\n");
+	printf("mang da sap xeo theo thu tu tang dan: ");
+	for (int i = 0; i < size; i++) {
+		printf("%d ", arr[i]);
 	}
+	printf("\n");
 	return 0;
 }
